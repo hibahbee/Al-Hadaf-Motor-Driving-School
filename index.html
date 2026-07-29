@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Hadaf Motor Driving School | الهدف لتعليم قيادة السيارات</title>
+<meta name="description" content="Al Hadaf Motor Driving School — Ras Al Khaimah's driving school for women. Patient instructors, proven techniques, first-try confidence.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Cairo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#0F3B66;
+    --blue-mid:#1B5FA0;
+    --blue-bright:#2B7CC7;
+    --yellow:#F5B400;
+    --yellow-deep:#D99A00;
+    --white:#FFFFFF;
+    --off-white:#FBFAF6;
+    --ink:#0F2233;
+    --ink-soft:#3E5670;
+    --logo-red:#DF3327;
+    --logo-green:#178A4C;
+    --line:#DCE4EC;
+    --radius:18px;
+    --font-display-en:'Fraunces', serif;
+    --font-display-ar:'Cairo', sans-serif;
+    --font-body-en:'Inter', sans-serif;
+    --font-body-ar:'Cairo', sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--off-white);
+    color:var(--ink);
+    font-family:var(--font-body-en);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  html[dir="rtl"] body{ font-family:var(--font-body-ar); }
+
+  /* language toggling */
+  .en, .ar{ }
+  body.lang-ar .en{ display:none !important; }
+  body.lang-en .ar{ display:none !important; }
+  body.lang-ar h1, body.lang-ar h2, body.lang-ar h3, body.lang-ar .display{
+    font-family:var(--font-display-ar);
+  }
+  body.lang-en h1, body.lang-en h2, body.lang-en h3, body.lang-en .display{
+    font-family:var(--font-display-en);
+  }
+
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{margin:0;padding:0;list-style:none;}
+  section{position:relative;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding-inline:28px;
+  }
+
+  /* ===== HEADER ===== */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,250,246,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-block:14px;
+  }
+  .logo-group{ display:flex; align-items:center; gap:14px; }
+  .logo-mark{ display:flex; align-items:center; gap:6px; }
+  .logo-chip{
+    width:34px; height:34px; border-radius:10px;
+    background:var(--logo-red);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .logo-chip svg{ width:18px; height:18px; }
+  .logo-plate{
+    height:34px; border-radius:10px;
+    background:var(--logo-green);
+    color:#fff; display:flex; align-items:center;
+    padding-inline:12px;
+    font-family:var(--font-display-en);
+    font-weight:600; letter-spacing:0.04em; font-size:0.82rem;
+    white-space:nowrap;
+  }
+  body.lang-ar .logo-plate{ font-family:var(--font-display-ar); font-weight:700; letter-spacing:0; }
+  .word-sub{
+    font-size:0.68rem; color:var(--ink-soft);
+    letter-spacing:0.14em; text-transform:uppercase;
+    margin-top:2px;
+  }
+  body.lang-ar .word-sub{ letter-spacing:0; text-transform:none; font-size:0.78rem;}
+
+  nav.main-nav{ display:flex; gap:28px; }
+  nav.main-nav a{
+    font-size:0.92rem; font-weight:500; color:var(--ink-soft);
+    position:relative; padding-block:4px;
+  }
+  nav.main-nav a:hover{ color:var(--blue-deep); }
+  nav.main-nav a::after{
+    content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0;
+    background:var(--yellow); transition:width .25s ease;
+  }
+  nav.main-nav a:hover::after{ width:100%; }
+
+  .header-actions{ display:flex; align-items:center; gap:14px; }
+
+  .lang-toggle{
+    display:flex; border:1.5px solid var(--blue-deep); border-radius:999px;
+    overflow:hidden; font-size:0.78rem; font-weight:600;
+  }
+  .lang-toggle button{
+    border:none; background:transparent; color:var(--blue-deep);
+    padding:6px 14px; cursor:pointer; font-family:inherit; font-size:inherit; font-weight:inherit;
+  }
+  .lang-toggle button.active{ background:var(--blue-deep); color:#fff; }
+
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 22px; border-radius:999px; font-weight:600; font-size:0.9rem;
+    cursor:pointer; border:none; white-space:nowrap;
+  }
+  .btn-primary{ background:var(--yellow); color:var(--ink); }
+  .btn-primary:hover{ background:var(--yellow-deep); }
+  .btn-outline{ border:1.5px solid var(--blue-deep); color:var(--blue-deep); background:transparent; }
+  .btn-outline:hover{ background:var(--blue-deep); color:#fff; }
+
+  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; }
+
+  /* ===== HERO ===== */
+  .hero{
+    padding-block:72px 40px;
+    background:
+      radial-gradient(600px 300px at 85% -10%, rgba(43,124,199,0.12), transparent),
+      var(--off-white);
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#fff; border:1px solid var(--line); border-radius:999px;
+    padding:6px 14px; font-size:0.78rem; font-weight:600; color:var(--blue-deep);
+    margin-bottom:22px;
+  }
+  .eyebrow .dot{ width:7px; height:7px; border-radius:50%; background:var(--yellow); }
+  h1.display{
+    font-size:clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height:1.08; font-weight:500; color:var(--blue-deep);
+    margin:0 0 22px;
+  }
+  body.lang-en h1.display em{ font-style:italic; color:var(--logo-red); }
+  body.lang-ar h1.display{ font-weight:800; }
+  .hero p.lede{
+    font-size:1.08rem; line-height:1.65; color:var(--ink-soft); max-width:520px; margin:0 0 30px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px;}
+  .rating-strip{
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  .rating-card{
+    display:flex; align-items:center; gap:10px;
+    background:#fff; border:1px solid var(--line); border-radius:14px; padding:10px 16px;
+  }
+  .rating-num{ font-family:var(--font-display-en); font-size:1.5rem; color:var(--blue-deep); font-weight:600; }
+  .stars{ color:var(--yellow); letter-spacing:1px; }
+  .rating-sub{ font-size:0.78rem; color:var(--ink-soft); }
+
+  .hero-art{ position:relative; }
+  .plate-visual{
+    background:linear-gradient(160deg, var(--blue-deep), var(--blue-mid));
+    border-radius:28px; padding:34px; color:#fff; position:relative; overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(15,59,102,0.45);
+  }
+  .plate-visual::after{
+    content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(-45deg, rgba(255,255,255,0.03) 0 12px, transparent 12px 24px);
+  }
+  .plate-badge{
+    display:inline-block; background:var(--yellow); color:var(--ink);
+    font-family:var(--font-display-en); font-weight:700; letter-spacing:0.08em;
+    padding:6px 14px; border-radius:8px; font-size:0.85rem; margin-bottom:20px;
+  }
+  body.lang-ar .plate-badge{ font-family:var(--font-display-ar); letter-spacing:0;}
+  .plate-visual h3{ font-family:var(--font-display-en); font-weight:500; font-size:1.5rem; margin:0 0 10px; position:relative;}
+  body.lang-ar .plate-visual h3{ font-family:var(--font-display-ar); font-weight:700; }
+  .plate-visual p{ opacity:0.85; font-size:0.95rem; line-height:1.6; margin:0 0 22px; position:relative;}
+  .mini-stats{ display:flex; gap:22px; position:relative; }
+  .mini-stat b{ display:block; font-size:1.4rem; font-family:var(--font-display-en); }
+  body.lang-ar .mini-stat b{ font-family:var(--font-display-ar); }
+  .mini-stat span{ font-size:0.72rem; opacity:0.75; }
+
+  /* ===== ROAD / SIGNATURE LINE ===== */
+  .road-wrap{ position:relative; }
+  .road-svg{ position:absolute; top:0; bottom:0; inset-inline-start:50%; width:2px; transform:translateX(-50%); }
+  .road-svg path{
+    stroke:var(--blue-mid); stroke-width:3; fill:none; stroke-dasharray:10 12;
+  }
+
+  .journey-marker{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--blue-deep); color:#fff; border-radius:999px;
+    padding:6px 16px; font-size:0.78rem; font-weight:700; letter-spacing:0.06em;
+    margin-bottom:18px;
+  }
+  .journey-marker .pin{
+    width:18px; height:18px; border-radius:50%; background:var(--yellow); color:var(--ink);
+    display:flex; align-items:center; justify-content:center; font-size:0.7rem;
+  }
+
+  /* ===== SECTIONS GENERIC ===== */
+  .section{ padding-block:84px; }
+  .section-head{ max-width:640px; margin-bottom:48px; }
+  .section-head h2{ font-size:clamp(1.8rem,3vw,2.4rem); font-weight:500; color:var(--blue-deep); margin:0 0 14px; }
+  body.lang-ar .section-head h2{ font-weight:800; }
+  .section-head p{ color:var(--ink-soft); font-size:1.02rem; line-height:1.6; margin:0; }
+  .alt-bg{ background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+  /* WHY GRID */
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .why-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .why-card:hover{ transform:translateY(-4px); box-shadow:0 16px 30px -18px rgba(15,34,51,0.25); }
+  .why-icon{
+    width:44px; height:44px; border-radius:12px; background:var(--yellow);
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+  }
+  .why-icon svg{ width:22px; height:22px; }
+  .why-card h3{ font-size:1.08rem; margin:0 0 8px; color:var(--ink); font-weight:700; font-family:var(--font-body-en); }
+  body.lang-ar .why-card h3{ font-family:var(--font-body-ar); }
+  .why-card p{ font-size:0.92rem; color:var(--ink-soft); line-height:1.55; margin:0; }
+
+  /* INSTRUCTORS */
+  .instr-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+  .instr-card{ text-align:center; }
+  .instr-avatar{
+    width:78px; height:78px; border-radius:50%; margin:0 auto 14px;
+    background:linear-gradient(135deg, var(--blue-mid), var(--blue-deep));
+    color:#fff; display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display-en); font-size:1.4rem; font-weight:600;
+    border:3px solid var(--yellow);
+  }
+  body.lang-ar .instr-avatar{ font-family:var(--font-display-ar); }
+  .instr-card h4{ margin:0 0 4px; font-size:0.98rem; }
+  .instr-card span{ font-size:0.78rem; color:var(--ink-soft); }
+
+  /* REVIEWS */
+  .review-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .review-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:24px;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .review-stars{ color:var(--yellow); font-size:0.9rem; letter-spacing:1px; }
+  .review-card p{ font-size:0.94rem; line-height:1.6; color:var(--ink); margin:0; flex:1; }
+  .review-who{ display:flex; align-items:center; gap:10px; }
+  .review-avatar{
+    width:34px; height:34px; border-radius:50%; background:var(--off-white);
+    border:1px solid var(--line); display:flex; align-items:center; justify-content:center;
+    font-size:0.78rem; font-weight:700; color:var(--blue-deep);
+  }
+  .review-who b{ font-size:0.85rem; display:block; }
+  .review-who span{ font-size:0.72rem; color:var(--ink-soft); }
+  .review-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:36px; }
+  .tag{
+    border:1px solid var(--line); border-radius:999px; padding:6px 14px; font-size:0.78rem;
+    color:var(--ink-soft); background:#fff;
+  }
+
+  /* LOCATION */
+  .loc-grid{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; }
+  .loc-card{
+    background:var(--blue-deep); color:#fff; border-radius:24px; padding:34px;
+  }
+  .loc-card h3{ font-family:var(--font-display-en); font-weight:500; font-size:1.4rem; margin:0 0 18px;}
+  body.lang-ar .loc-card h3{ font-family:var(--font-display-ar); font-weight:700; }
+  .loc-row{ display:flex; gap:12px; margin-bottom:16px; align-items:flex-start; }
+  .loc-row svg{ flex-shrink:0; margin-top:2px; }
+  .loc-row div b{ display:block; font-size:0.9rem; }
+  .loc-row div span{ font-size:0.85rem; opacity:0.8; }
+  .loc-actions{ display:flex; gap:12px; margin-top:24px; flex-wrap:wrap; }
+  .map-frame{
+    border-radius:24px; overflow:hidden; border:1px solid var(--line); height:340px;
+  }
+  .map-frame iframe{ width:100%; height:100%; border:0; }
+
+  /* CTA BAND */
+  .cta-band{
+    background:linear-gradient(120deg, var(--blue-deep), var(--blue-mid));
+    color:#fff; border-radius:28px; padding:50px; text-align:center;
+    margin-inline:28px;
+  }
+  .cta-band h2{ font-family:var(--font-display-en); font-weight:500; font-size:clamp(1.6rem,3vw,2.2rem); margin:0 0 12px;}
+  body.lang-ar .cta-band h2{ font-family:var(--font-display-ar); font-weight:800; }
+  .cta-band p{ opacity:0.85; margin:0 0 26px; }
+  .cta-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  /* FOOTER */
+  footer{ padding-block:50px 30px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; margin-bottom:36px; }
+  .footer-about p{ color:var(--ink-soft); font-size:0.9rem; line-height:1.6; max-width:320px; }
+  .footer-col h5{ font-size:0.82rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--ink-soft); margin:0 0 14px; }
+  body.lang-ar .footer-col h5{ text-transform:none; letter-spacing:0; }
+  .footer-col a{ display:block; font-size:0.9rem; color:var(--ink); margin-bottom:10px; }
+  .footer-col a:hover{ color:var(--blue-deep); }
+  .footer-bottom{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--line); padding-top:22px; font-size:0.8rem; color:var(--ink-soft);
+    flex-wrap:wrap; gap:10px;
+  }
+
+  /* reveal animation */
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .why-grid{ grid-template-columns:1fr 1fr; }
+    .instr-grid{ grid-template-columns:repeat(3,1fr); }
+    .review-grid{ grid-template-columns:1fr 1fr; }
+    .loc-grid{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr 1fr; }
+    nav.main-nav{ display:none; }
+  }
+  @media (max-width:600px){
+    .why-grid{ grid-template-columns:1fr; }
+    .instr-grid{ grid-template-columns:repeat(2,1fr); }
+    .review-grid{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr; }
+    .cta-band{ margin-inline:16px; padding:34px 22px; }
+    .header-actions .btn-outline{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal{ transition:none; opacity:1; transform:none; }
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<header>
+  <div class="wrap header-row">
+    <div class="logo-group">
+      <div class="logo-mark">
+        <div class="logo-chip">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 15L6 8H18L20 15" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="17" r="1.6" fill="white"/><circle cx="16.5" cy="17" r="1.6" fill="white"/><path d="M5 15H19" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <div class="logo-plate"><span class="en">AL HADAF</span><span class="ar">الهدف</span></div>
+      </div>
+    </div>
+
+    <nav class="main-nav">
+      <a href="#why"><span class="en">Why Us</span><span class="ar">لماذا نحن</span></a>
+      <a href="#instructors"><span class="en">Instructors</span><span class="ar">المدربات</span></a>
+      <a href="#reviews"><span class="en">Reviews</span><span class="ar">آراء الطالبات</span></a>
+      <a href="#location"><span class="en">Location</span><span class="ar">الموقع</span></a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-toggle">
+        <button id="btn-en" class="active" onclick="setLang('en')">EN</button>
+        <button id="btn-ar" onclick="setLang('ar')">AR</button>
+      </div>
+      <a href="tel:+97172221200" class="btn btn-outline">
+        <span class="en">Call Us</span><span class="ar">اتصلي بنا</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="reveal in">
+      <div class="eyebrow"><span class="dot"></span>
+        <span class="en">A driving school for women, in Ras Al Khaimah</span>
+        <span class="ar">مدرسة قيادة نسائية في رأس الخيمة</span>
+      </div>
+      <h1 class="display">
+        <span class="en">You don't need to be fearless to start driving.<br>You just need to <em>start</em>.</span>
+        <span class="ar">لست بحاجة لأن تكوني بلا خوف لتبدئي القيادة، فقط ابدئي.</span>
+      </h1>
+      <p class="lede">
+        <span class="en">Al Hadaf Motor Driving School has spent years turning first-time, first-fear drivers into confident, licensed ones — with patient instructors and a teaching style built around you.</span>
+        <span class="ar">منذ سنوات، تحوّل مدرسة الهدف لتعليم قيادة السيارات القائدات المبتدئات والخائفات إلى سائقات واثقات وحاصلات على رخصة القيادة، بفضل مدربات صبورات وأسلوب تعليم مصمم خصيصًا لكِ.</span>
+      </p>
+      <div class="hero-actions">
+        <a href="tel:+97172221200" class="btn btn-primary">
+          <span class="en">Book Your First Lesson</span><span class="ar">احجزي درسك الأول</span>
+        </a>
+        <a href="https://www.google.com/maps/place/Al+Hadaf+Motor+Driving+School/@25.7918689,55.9737911,797m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3ef676d669fe27a9:0xf3c29dabfbbd3990!8m2!3d25.791869!4d55.978662!16s%2Fg%2F11bbwqtkcl" target="_blank" rel="noopener" class="btn btn-outline">
+          <span class="en">Get Directions</span><span class="ar">الاتجاهات</span>
+        </a>
+      </div>
+      <div class="rating-strip">
+        <div class="rating-card">
+          <span class="rating-num">4.1</span>
+          <div>
+            <div class="stars">★★★★☆</div>
+            <div class="rating-sub"><span class="en">32 Google reviews</span><span class="ar">٣٢ تقييم على جوجل</span></div>
+          </div>
+        </div>
+        <div class="rating-card">
+          <div>
+            <div class="rating-sub" style="font-weight:700;color:var(--blue-deep)">
+              <span class="en">Open today · Closes 9 PM</span><span class="ar">مفتوح اليوم · يغلق الساعة ٩ مساءً</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-art reveal in">
+      <div class="plate-visual">
+        <span class="plate-badge">RAK · UAE</span>
+        <h3><span class="en">Ladies-only, start to license</span><span class="ar">مسار كامل للسيدات حتى الرخصة</span></h3>
+        <p>
+          <span class="en">A calm, judgment-free space where every lesson builds toward one goal: your first-try pass.</span>
+          <span class="ar">مساحة هادئة وخالية من الأحكام، حيث يبني كل درس نحو هدف واحد: نجاحكِ من المحاولة الأولى.</span>
+        </p>
+        <div class="mini-stats">
+          <div class="mini-stat"><b>32+</b><span class="en">Students reviewed us</span><span class="ar">طالبة شاركت رأيها</span></div>
+          <div class="mini-stat"><b>5</b><span class="en">Instructors on our team</span><span class="ar">مدربات في فريقنا</span></div>
+          <div class="mini-stat"><b>4.1★</b><span class="en">Average rating</span><span class="ar">متوسط التقييم</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="road-wrap">
+<svg class="road-svg" viewBox="0 0 2 2000" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M1,0 L1,2000"/>
+</svg>
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="journey-marker"><span class="pin">1</span><span class="en">The Journey — Getting Ready</span><span class="ar">المرحلة الأولى — الاستعداد</span></div>
+    <div class="section-head reveal">
+      <h2><span class="en">Why students choose Al Hadaf</span><span class="ar">لماذا تختار الطالبات الهدف</span></h2>
+      <p>
+        <span class="en">Everything below comes from what our own students told Google — in their words, about our instructors.</span>
+        <span class="ar">كل ما يلي مستوحى مما شاركته طالباتنا فعليًا على جوجل، بكلماتهن، عن مدرباتنا.</span>
+      </p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12L9 17L20 6" stroke="#0F2233" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span class="en">Women only, always</span><span class="ar">للسيدات فقط، دائمًا</span></h3>
+        <p><span class="en">Every instructor, every lesson, every car — a space built specifically for women learning to drive.</span><span class="ar">كل مدربة، كل درس، كل سيارة — مساحة مخصصة للسيدات لتعلم القيادة.</span></p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21C12 21 4 14.5 4 9.5C4 6 6.5 4 9 4C10.5 4 11.5 5 12 6C12.5 5 13.5 4 15 4C17.5 4 20 6 20 9.5C20 14.5 12 21 12 21Z" stroke="#0F2233" stroke-width="2"/></svg></div>
+        <h3><span class="en">Patient, kind instructors</span><span class="ar">مدربات صبورات ولطيفات</span></h3>
+        <p><span class="en">Reviewers describe our team as kind and endlessly patient, especially with nervous first-time drivers.</span><span class="ar">تصف الطالبات فريقنا بأنه لطيف وصبور جدًا، خاصة مع السائقات المبتدئات القلقات.</span></p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12H21M21 12L15 6M21 12L15 18" stroke="#0F2233" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3><span class="en">Techniques that click</span><span class="ar">أساليب تعليم واضحة</span></h3>
+        <p><span class="en">Parking, maneuvers, road tests — explained simply, and corrected the moment something goes wrong.</span><span class="ar">صف السيارة، المناورات، الاختبارات — تُشرح ببساطة، وتُصحَّح فور حدوث أي خطأ.</span></p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#0F2233" stroke-width="2"/><path d="M12 8V12L15 14" stroke="#0F2233" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3><span class="en">Built for confidence</span><span class="ar">مصممة لبناء الثقة</span></h3>
+        <p><span class="en">Many students arrive scared to sit behind the wheel and leave describing themselves as genuinely confident.</span><span class="ar">تصل كثير من الطالبات خائفات من الجلوس خلف المقود، ويغادرن واثقات فعلًا.</span></p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13L9 17L19 7" stroke="#0F2233" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 7L9 11" stroke="#0F2233" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3><span class="en">Strong first-try pass rate</span><span class="ar">نسبة نجاح عالية من أول محاولة</span></h3>
+        <p><span class="en">Multiple students mention passing their parking, maneuver and road tests on the very first attempt.</span><span class="ar">تذكر عدة طالبات نجاحهن في اختبارات الصف والمناورة والطريق من المحاولة الأولى.</span></p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6H20M4 12H20M4 18H12" stroke="#0F2233" stroke-width="2" stroke-linecap="round"/></svg></div>
+        <h3><span class="en">Flexible, structured plans</span><span class="ar">خطط مرنة ومنظمة</span></h3>
+        <p><span class="en">Lessons that flex around your schedule while still following a clear, proven curriculum.</span><span class="ar">دروس تتكيف مع جدولكِ مع اتباع منهج واضح ومثبت.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTRUCTORS -->
+<section class="section alt-bg" id="instructors">
+  <div class="wrap">
+    <div class="journey-marker"><span class="pin">2</span><span class="en">The Journey — Behind the Wheel</span><span class="ar">المرحلة الثانية — خلف المقود</span></div>
+    <div class="section-head reveal">
+      <h2><span class="en">Meet the instructors students ask for by name</span><span class="ar">تعرّفي على المدربات اللواتي تطلبهن الطالبات بالاسم</span></h2>
+      <p><span class="en">These are the names that come up again and again in our reviews.</span><span class="ar">هذه الأسماء التي تتكرر مرارًا في تقييمات طالباتنا.</span></p>
+    </div>
+    <div class="instr-grid">
+      <div class="instr-card reveal">
+        <div class="instr-avatar">F</div>
+        <h4><span class="en">Fatima</span><span class="ar">فاطمة</span></h4>
+        <span><span class="en">Head Trainer</span><span class="ar">المدربة الرئيسية</span></span>
+      </div>
+      <div class="instr-card reveal">
+        <div class="instr-avatar">N</div>
+        <h4><span class="en">Nadiya</span><span class="ar">نادية</span></h4>
+        <span><span class="en">Driving Instructor</span><span class="ar">مدربة قيادة</span></span>
+      </div>
+      <div class="instr-card reveal">
+        <div class="instr-avatar">A</div>
+        <h4><span class="en">Aklia</span><span class="ar">أكليا</span></h4>
+        <span><span class="en">Driving Instructor</span><span class="ar">مدربة قيادة</span></span>
+      </div>
+      <div class="instr-card reveal">
+        <div class="instr-avatar">Z</div>
+        <h4><span class="en">Zahida</span><span class="ar">زاهدة</span></h4>
+        <span><span class="en">Driving Instructor</span><span class="ar">مدربة قيادة</span></span>
+      </div>
+      <div class="instr-card reveal">
+        <div class="instr-avatar">MG</div>
+        <h4><span class="en">Teacher MG</span><span class="ar">المدربة MG</span></h4>
+        <span><span class="en">Driving Instructor</span><span class="ar">مدربة قيادة</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="journey-marker"><span class="pin">3</span><span class="en">The Journey — In Their Words</span><span class="ar">المرحلة الثالثة — بكلماتهن</span></div>
+    <div class="section-head reveal">
+      <h2><span class="en">What our students say</span><span class="ar">ماذا تقول طالباتنا</span></h2>
+      <p><span class="en">A few highlights from our 32 Google reviews, in our own summary of their words.</span><span class="ar">لمحات من ٣٢ تقييمًا على جوجل، في ملخص من عندنا لآرائهن.</span></p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p><span class="en">Never thought she'd get her license — until Nadiya, Aklia and Fatima trained her through it.</span><span class="ar">لم تظن يومًا أنها ستحصل على رخصتها، حتى دربتها نادية وأكليا وفاطمة خطوة بخطوة.</span></p>
+        <div class="review-who"><div class="review-avatar">D</div><div><b><span class="en">Dark Angel</span><span class="ar">Dark Angel</span></b><span><span class="en">Google review</span><span class="ar">تقييم جوجل</span></span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p><span class="en">Had never driven before and was scared — says Al Hadaf built her confidence and taught her to perfection.</span><span class="ar">لم تقُد سيارة من قبل وكانت خائفة، تقول إن الهدف بنى ثقتها وعلّمها بإتقان.</span></p>
+        <div class="review-who"><div class="review-avatar">R</div><div><b><span class="en">Reshma Parveen</span><span class="ar">Reshma Parveen</span></b><span><span class="en">Google review</span><span class="ar">تقييم جوجل</span></span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p><span class="en">Says Teacher MG's teaching technique left her far more confident behind the wheel.</span><span class="ar">تقول إن أسلوب تعليم المدربة MG جعلها أكثر ثقة بكثير خلف المقود.</span></p>
+        <div class="review-who"><div class="review-avatar">M</div><div><b><span class="en">Michelle Roxas</span><span class="ar">Michelle Roxas</span></b><span><span class="en">Google review</span><span class="ar">تقييم جوجل</span></span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p><span class="en">Passed her parking maneuver and evaluation on the very first try, and credits the training for it.</span><span class="ar">نجحت في اختبار مناورة الصف والتقييم من أول محاولة، وتنسب ذلك للتدريب.</span></p>
+        <div class="review-who"><div class="review-avatar">S</div><div><b><span class="en">Shayma</span><span class="ar">شيماء</span></b><span><span class="en">Google review</span><span class="ar">تقييم جوجل</span></span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p><span class="en">Was terrified of driving — says Fatima was patient and explained everything simply until that fear was gone.</span><span class="ar">كانت مرعوبة من القيادة، وتقول إن فاطمة كانت صبورة وشرحت كل شيء ببساطة حتى زال الخوف.</span></p>
+        <div class="review-who"><div class="review-avatar">S</div><div><b><span class="en">Soso</span><span class="ar">سوسو</span></b><span><span class="en">Google review</span><span class="ar">تقييم جوجل</span></span></div></div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p><span class="en">Passed three different test locations on the first or second try, and recommends the school highly.</span><span class="ar">نجحت في ثلاثة مواقع اختبار مختلفة من المحاولة الأولى أو الثانية، وتوصي بالمدرسة بشدة.</span></p>
+        <div class="review-who"><div class="review-avatar">آ</div><div><b><span class="en">Alaa Yahya Dahi</span><span class="ar">آلاء يحيى ضاحي</span></b><span><span class="en">Google review</span><span class="ar">تقييم جوجل</span></span></div></div>
+      </div>
+    </div>
+    <div class="review-tags reveal">
+      <span class="tag"><span class="en">kind teachers</span><span class="ar">مدربات لطيفات</span></span>
+      <span class="tag"><span class="en">teaching techniques</span><span class="ar">أساليب تدريس</span></span>
+      <span class="tag"><span class="en">confidence</span><span class="ar">الثقة</span></span>
+      <span class="tag"><span class="en">driving lessons</span><span class="ar">دروس القيادة</span></span>
+      <span class="tag"><span class="en">teaching quality</span><span class="ar">جودة التدريس</span></span>
+      <span class="tag"><span class="en">coaches</span><span class="ar">المدربات</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="section alt-bg" id="location">
+  <div class="wrap">
+    <div class="journey-marker"><span class="pin">4</span><span class="en">The Journey — Test &amp; License</span><span class="ar">المرحلة الرابعة — الاختبار والرخصة</span></div>
+    <div class="section-head reveal">
+      <h2><span class="en">Find us in Ras Al Khaimah</span><span class="ar">تجدينا في رأس الخيمة</span></h2>
+      <p><span class="en">Come by, call ahead, or send us a message — we'll help you plan your first lesson.</span><span class="ar">مري بنا، اتصلي مسبقًا، أو راسلينا — سنساعدكِ في تحديد درسكِ الأول.</span></p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card reveal">
+        <h3><span class="en">Al Hadaf Motor Driving School</span><span class="ar">الهدف لتعليم قيادة السيارات</span></h3>
+        <div class="loc-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 22C12 22 19 15.5 19 10.5C19 6.36 15.64 3 12 3C8.36 3 5 6.36 5 10.5C5 15.5 12 22 12 22Z" stroke="#F5B400" stroke-width="1.8"/><circle cx="12" cy="10.5" r="2.5" stroke="#F5B400" stroke-width="1.8"/></svg>
+          <div><b><span class="en">Address</span><span class="ar">العنوان</span></b><span><span class="en">Al Araibi, Ras Al Khaimah, United Arab Emirates</span><span class="ar">العريبي، رأس الخيمة، الإمارات العربية المتحدة</span></span></div>
+        </div>
+        <div class="loc-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#F5B400" stroke-width="1.8"/><path d="M12 7V12L15.5 14" stroke="#F5B400" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div><b><span class="en">Hours</span><span class="ar">أوقات العمل</span></b><span><span class="en">Open today · Closes 9 PM</span><span class="ar">مفتوح اليوم · يغلق الساعة ٩ مساءً</span></span></div>
+        </div>
+        <div class="loc-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 5C4 4 5 3 6 3H8L10 8L8 9.5C9 12 12 15 14.5 16L16 14L21 16C21 17 20 20 19 20C11 20 4 13 4 5Z" stroke="#F5B400" stroke-width="1.6"/></svg>
+          <div><b><span class="en">Phone</span><span class="ar">الهاتف</span></b><span>+971 7 222 1200</span></div>
+        </div>
+        <div class="loc-row">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#F5B400" stroke-width="1.6"/><path d="M3 8H21" stroke="#F5B400" stroke-width="1.6"/></svg>
+          <div><b><span class="en">Plus Code</span><span class="ar">الرمز البريدي</span></b><span>QXRH+PF Ras Al-Khaimah</span></div>
+        </div>
+        <div class="loc-actions">
+          <a href="tel:+97172221200" class="btn btn-primary"><span class="en">Call to Book</span><span class="ar">اتصلي للحجز</span></a>
+          <a href="https://www.google.com/maps/place/Al+Hadaf+Motor+Driving+School/@25.7918689,55.9737911,797m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3ef676d669fe27a9:0xf3c29dabfbbd3990!8m2!3d25.791869!4d55.978662!16s%2Fg%2F11bbwqtkcl" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#fff;color:#fff"><span class="en">Open in Google Maps</span><span class="ar">فتح في خرائط جوجل</span></a>
+        </div>
+      </div>
+      <div class="map-frame reveal">
+        <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Al+Hadaf+Motor+Driving+School+Ras+Al+Khaimah&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /road-wrap -->
+
+<!-- CTA -->
+<section style="padding-block:20px 90px;">
+  <div class="cta-band reveal">
+    <h2><span class="en">Your license is closer than you think.</span><span class="ar">رخصتكِ أقرب مما تظنين.</span></h2>
+    <p><span class="en">Join the students who started nervous and left confident.</span><span class="ar">انضمي إلى الطالبات اللواتي بدأن قلقات وغادرن واثقات.</span></p>
+    <div class="cta-actions">
+      <a href="tel:+97172221200" class="btn btn-primary"><span class="en">Call +971 7 222 1200</span><span class="ar">اتصلي ٩٧١٧٢٢٢١٢٠٠+</span></a>
+      <a href="http://alhadafdrivingschool.ae" target="_blank" rel="noopener" class="btn btn-outline" style="border-color:#fff;color:#fff"><span class="en">Visit alhadafdrivingschool.ae</span><span class="ar">زيارة alhadafdrivingschool.ae</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <div class="logo-mark" style="margin-bottom:14px;">
+          <div class="logo-chip"><svg viewBox="0 0 24 24" fill="none"><path d="M4 15L6 8H18L20 15" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="17" r="1.6" fill="white"/><circle cx="16.5" cy="17" r="1.6" fill="white"/><path d="M5 15H19" stroke="white" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+          <div class="logo-plate"><span class="en">AL HADAF</span><span class="ar">الهدف</span></div>
+        </div>
+        <p><span class="en">Ras Al Khaimah's driving school for women — patient instructors, clear techniques, and a proven first-try pass record.</span><span class="ar">مدرسة قيادة السيدات في رأس الخيمة — مدربات صبورات، أساليب واضحة، وسجل نجاح مثبت من المحاولة الأولى.</span></p>
+      </div>
+      <div class="footer-col">
+        <h5><span class="en">Explore</span><span class="ar">استكشفي</span></h5>
+        <a href="#why"><span class="en">Why Us</span><span class="ar">لماذا نحن</span></a>
+        <a href="#instructors"><span class="en">Instructors</span><span class="ar">المدربات</span></a>
+        <a href="#reviews"><span class="en">Reviews</span><span class="ar">آراء الطالبات</span></a>
+        <a href="#location"><span class="en">Location</span><span class="ar">الموقع</span></a>
+      </div>
+      <div class="footer-col">
+        <h5><span class="en">Contact</span><span class="ar">تواصل معنا</span></h5>
+        <a href="tel:+97172221200">+971 7 222 1200</a>
+        <a href="http://alhadafdrivingschool.ae" target="_blank" rel="noopener">alhadafdrivingschool.ae</a>
+        <a href="https://www.google.com/maps/place/Al+Hadaf+Motor+Driving+School/@25.7918689,55.9737911,797m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3ef676d669fe27a9:0xf3c29dabfbbd3990!8m2!3d25.791869!4d55.978662!16s%2Fg%2F11bbwqtkcl" target="_blank" rel="noopener"><span class="en">Al Araibi, Ras Al Khaimah</span><span class="ar">العريبي، رأس الخيمة</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span><span class="en">© 2026 Al Hadaf Motor Driving School. All rights reserved.</span><span class="ar">© ٢٠٢٦ الهدف لتعليم قيادة السيارات. جميع الحقوق محفوظة.</span></span>
+      <div class="lang-toggle">
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="setLang('ar')">AR</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function setLang(lang){
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('lang-ar', lang === 'ar');
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-ar').classList.toggle('active', lang === 'ar');
+    try{ localStorage.setItem('alhadaf-lang', lang); }catch(e){}
+  }
+  (function(){
+    var saved = null;
+    try{ saved = localStorage.getItem('alhadaf-lang'); }catch(e){}
+    if(saved === 'ar'){ setLang('ar'); }
+  })();
+
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(!mq.matches && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+      });
+    }, {threshold:0.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+</script>
+
+</body>
+</html>
